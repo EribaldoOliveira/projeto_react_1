@@ -1,63 +1,47 @@
 import { useState } from 'react';
 
 function App() {
-  const [nome, setNome] = useState('');
-  const [email, setEmail] = useState('');
-  const [idade, setIdade] = useState('');
-
-  const [user, setUser] = useState({});
-  
-
-function handleRegister(e){
-  e.preventDefault();
-
-  alert('Usuário registrado com sucesso!')
-  setUser({
-    nome: nome,
-    idade: idade,
-    email: email,
-  })
-}
+  const [input, setInput] = useState('');
+  const [tarefas, setTarefas] = useState([
+    'Pagar a conta de luz',
+    'Estudar React JS'
+  ]);
 
 
-  return(
+
+  function handleRegister(e) {
+    e.preventDefault();
+
+    setTarefas([...tarefas, input]);
+    setInput('');
+
+  }
+
+  return (
     <div>
-      <h1>Cadastrando usuário</h1>
+      <h1>Lista de Tarefas</h1>
 
-      <form onsubmit={handleRegister}>
-        <label>Nome:</label><br/>
-        <input 
-          placeholder="Digite seu nome"
-          value={nome}
-          onChange={ (e) => setNome(e.target.value)}
-        /><br/>
-
-        <label>Email:</label><br/>
-        <input 
-          placeholder="Digite seu email"
-          value={email}
-          onChange={ (e) => setEmail(e.target.value)}
-        /><br/>
-
-        <label>Idade:</label><br/>
-        <input 
-          placeholder="Digite sua idade"
-          value={idade}
-          onChange={ (e) => setIdade(e.target.value) }
-        /><br/>
-
-        <button type="submit"> Registrar</button>
+      <form onSubmit={handleRegister}>
+        <label>Nome da tarefa:</label><br />
+        <input
+          placeholder="Digite uma tarefa"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        /><br />
+        <button type="submit">Registrar</button>
       </form>
 
-      <br/><br/>
-      <div>
-        <span>Bem Vindo: {user.nome}</span><br/>
-        <span>Idade: {user.idade}</span><br />
-        <span>Email: {user.email}</span><br />
+      <br /><br />
 
-      </div>
+      <ul>
+        {tarefas.map(tarefa => (
+          <li key={tarefa}>{tarefa}</li>
+        ))}
+      </ul>
+
     </div>
   );
 }
 
 export default App;
+
