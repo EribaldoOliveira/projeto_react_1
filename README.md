@@ -73,5 +73,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 Lista de Tarefas - Manipulando o useState através de Arrays. Aula 31 
+
 ![image](https://github.com/EribaldoOliveira/projeto_react_1/assets/114995774/54c54fa5-8463-4b62-a32f-47a207448a78)
 
