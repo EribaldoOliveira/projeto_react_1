@@ -20,6 +20,7 @@ function App() {
   return (
     <div>
       <h1>Lista de Tarefas</h1>
+      <h2>Manipulando o useState através de Arrays.</h2>
 
       <form onSubmit={handleRegister}>
         <label>Nome da tarefa:</label><br />
